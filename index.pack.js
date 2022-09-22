@@ -5702,12 +5702,12 @@ function App() {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _axios2.default.get("http://api.open-notify.org/astros.json");
+                return _axios2.default.get("https://api.wheretheiss.at/v1/satellites/25544");
 
               case 2:
                 response = _context2.sent;
 
-                setAstros(response.data.people);
+                setAstros(response.data);
 
               case 4:
               case "end":
@@ -5724,22 +5724,16 @@ function App() {
 
     fetchData();
   }, []);
-  var temp1 = astros;
-  console.log(temp1);
-  var items1 = temp1.map(function (item) {
-    return _react2.default.createElement(
-      "div",
-      { key: item.name, className: "astros--div" },
-      _react2.default.createElement(
-        "h2",
-        { key: item.name },
-        item.name,
-        " (",
-        item.craft,
-        ")"
-      )
-    );
-  });
+  var items1 = astros;
+  console.log(items1);
+  // const items1 = temp1.map(item => {
+  //   return (
+  //       <div key={item.visibility}className="astros--div">
+  //         <h2 key={item.visibility}>{item.visibility} ({item.velocity})</h2>
+  //       </div>
+  //   )
+  // })      
+
 
   return _react2.default.createElement(
     "main",
@@ -5749,7 +5743,34 @@ function App() {
     _react2.default.createElement(
       "div",
       { className: "astros--div--main" },
-      items1
+      _react2.default.createElement(
+        "div",
+        { key: items1.visibility, className: "astros--div" },
+        _react2.default.createElement(
+          "h2",
+          { key: items1.visibility },
+          "Visibility: ",
+          items1.visibility
+        ),
+        _react2.default.createElement(
+          "h2",
+          { key: items1.latitude },
+          "Latitude: ",
+          items1.latitude
+        ),
+        _react2.default.createElement(
+          "h2",
+          { key: items1.longitude },
+          "Longitude: ",
+          items1.longitude
+        ),
+        _react2.default.createElement(
+          "h2",
+          { key: items1.velocity },
+          "Velocity: ",
+          items1.velocity
+        )
+      )
     ),
     _react2.default.createElement(
       "h2",
@@ -6861,9 +6882,6 @@ function Body() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 exports.default = Header;
 
 var _react = __webpack_require__(34);
@@ -6873,10 +6891,6 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Header() {
-    var _React$useState = _react2.default.useState("Joe"),
-        _React$useState2 = _slicedToArray(_React$useState, 2),
-        user = _React$useState2[0],
-        setUser = _React$useState2[1];
 
     return _react2.default.createElement(
         "header",

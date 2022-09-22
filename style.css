@@ -72,22 +72,20 @@ p {
 }
 
 .astros--div--main{
-    display: flex;
-    background-color: rgb(231, 234, 255);
 
-    width: 100vw;
-    height: 10vh;
-    margin: auto;
+    width: 50vw;
+    height: 15vh;
+    margin-left: 3vw;
     margin-top:0vh;
-    margin-bottom: 10vh;
+    margin-bottom: 2vh;
 }
 
 .astros--div{
-    max-width: 10px;
-    max-height: 10px;
-    height: 5%;
-    margin: auto;
-    display: block;
+    max-width: 100px;
+
+
+
+ 
     margin-top: 4vh;
 }
 
@@ -95,7 +93,12 @@ section{
     margin-bottom: -5vh;
 }
 
-h2{
+main > h2{
+
     margin-left: 1vw;
-  
+}
+
+.astros--div > h2{
+    display:flex;
+    width: 300px;
 }

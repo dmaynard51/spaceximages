@@ -83,23 +83,23 @@ React.useEffect(() => {
 
       React.useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get("http://api.open-notify.org/astros.json");
-            setAstros(response.data.people);
+            const response = await axios.get("https://api.wheretheiss.at/v1/satellites/25544");
+            setAstros(response.data);
       
         }
       
         fetchData();
       
       }, []);
-          const temp1 = astros
-          console.log(temp1)
-            const items1 = temp1.map(item => {
-              return (
-                  <div key={item.name}className="astros--div">
-                    <h2 key={item.name}>{item.name} ({item.craft})</h2>
-                  </div>
-              )
-            })      
+          const items1 = astros
+          console.log(items1)
+            // const items1 = temp1.map(item => {
+            //   return (
+            //       <div key={item.visibility}className="astros--div">
+            //         <h2 key={item.visibility}>{item.visibility} ({item.velocity})</h2>
+            //       </div>
+            //   )
+            // })      
 
 
     
@@ -108,8 +108,13 @@ React.useEffect(() => {
             <Header />
             <Body />
             <div className="astros--div--main">
-
-              {items1}
+              <div key={items1.visibility}className="astros--div">
+                <h2 key={items1.visibility}>Visibility: {items1.visibility}</h2>
+                <h2 key={items1.latitude}>Latitude: {items1.latitude}</h2>
+                <h2 key={items1.longitude}>Longitude: {items1.longitude}</h2>
+                <h2 key={items1.velocity}>Velocity: {items1.velocity}</h2>                
+              </div>
+   
             </div>
             <h2>SpaceX Images via Flickr API:</h2>
             <div className="app--div">
