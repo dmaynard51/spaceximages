@@ -6870,7 +6870,7 @@ function Body(props) {
 
     return _react2.default.createElement(
         "section",
-        null,
+        { className: "body--section" },
         _react2.default.createElement(
             "h1",
             null,
